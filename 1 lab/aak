@@ -1,0 +1,23 @@
+bool inv(Node* head, int key){
+    if (head == nullptr) return false;
+    int size=0;
+    Node* temp= head;
+    while (temp !=nullptr){
+        size++;
+        temp=temp->next;
+    }
+    Node** arr=new Node*[size];
+    temp=head;
+    for(int i=0;i<size;i++){
+        arr[i]=temp;
+        temp=temp->next;
+    }
+    for(int i=0; i<size; i++){
+        if (arr[i]->date==key){
+            return true;
+            delete[] arr;
+        }
+    }
+    delete[] arr;
+    return false;
+}
