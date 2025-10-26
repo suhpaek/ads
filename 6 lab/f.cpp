@@ -110,7 +110,7 @@ void mergesort(vector<type>& arr){
   arr = merge(left, right);
   
   
-}
+  
 
 struct student{
   char* firstname;

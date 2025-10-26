@@ -4,24 +4,25 @@
 using namespace std;
 
 bool isBalanced(string s){
-    deque <string> d;
+    deque <char> d;
     for(char x:s){
-        d.push_back(string(1,x));
+        if(!d.empty() && d.back() == x){
+        d.pop_back();
+        }
+        else{
+        d.push_back(x);
+        }
     }
 
-    string p=d.front();
-    for(int i=0;i<d.size();i++){
-        while(d.front()==d.back()){
-            d.pop_back();
-        }
-        if(p==d.front()){
-            d.pop_front();
-        }
-    }
+
+    return d.empty();
+    
+
 }
 
 int main(){
     string s;
     cin>>s;
-    
+    if (isBalanced(s)) cout<<"YES";
+    else cout<<"NO";
 }
